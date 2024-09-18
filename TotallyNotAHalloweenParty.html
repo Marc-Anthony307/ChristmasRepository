@@ -14,61 +14,53 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            
         }
 
         .container {
             background-color: #0d0d0d;
             color: #0d0d0d;
-            width: 60%;
+            width: 80%; /* Increase the width for mobile */
             max-width: 1200px;
-            padding: 50px;
-            margin: 50px auto;
+            padding: 30px; /* Less padding for mobile */
+            margin: 30px auto; /* Less margin */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             position: relative;
             z-index: 1;
-            
         }
 
         .container2 {
             background-color: #000000;
             color: #0d0d0d;
-            width: 60%;
+            width: 80%; /* Increase the width for mobile */
             max-width: 1200px;
-            padding: 50px;
-            margin: 50px auto;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            position: relative;
-            z-index: 1;
+            padding: 30px; /* Less padding for mobile */
+            margin: 30px auto; /* Less margin */
             box-shadow: 0 0 20px 10px #ff6600;
-
+            border-radius: 10px;
         }
 
         h1 {
-            font-size: 3.5em;
-            margin: 50px 0 20px;
+            font-size: 3.5em; /* Adjusted for mobile */
+            margin: 20px 0;
             color: #ff6600;
-            text-shadow: 3px 3px #333;
+            text-shadow: 2px 2px #333;
             animation: pulse 5s infinite;
         }
 
         p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.2em; /* Smaller font size for paragraphs */
+            margin-bottom: 20px; /* Adjusted margin */
             color: #ffcc66;
         }
 
         p2 {
-            font-size: 1.6em;
-            margin-bottom: 30px;
+            font-size: 1.5em; /* Adjusted for mobile */
+            margin-bottom: 20px;
             color: #ff9100;
             animation: pulse 1.5s infinite;
         }
-        
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -80,30 +72,31 @@
                 transform: scale(1);
             }
         }
+
         pinfo {
-            font-size: 1.5em;
-            margin-bottom: 30px;
+            font-size: 1.4em; /* Adjusted for mobile */
+            margin-bottom: 20px;
             color: green;
-            line-height: 60px
+            line-height: 1.5; /* Adjusted line height */
         }
 
         ptransfer {
-            font-size: 1.8em;
-            margin-bottom: 30px;
+            font-size: 1.6em; /* Adjusted for mobile */
+            margin-bottom: 20px;
             color: rgb(255, 255, 255);
-            letter-spacing: 5px;
-
+            letter-spacing: 2px; /* Adjusted letter spacing */
         }
 
         p3 {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.1em; /* Smaller font size for mobile */
+            margin-bottom: 20px;
             color: #ff9100;
         }
 
         a {
             text-decoration: none;
             transition: background-color 0.3s;
+            color: #ffcc66; /* Consistent link color */
         }
 
         a:hover {
@@ -112,34 +105,31 @@
 
         p3 a {
             text-decoration: underline;
-
-            color: inherit;
-            /* Inherits the color of p3 */
+            color: inherit; /* Inherits the color of p3 */
         }
 
         pinfo a {
-            color: inherit;
-            /* Inherits the color of p3 */
+            color: inherit; /* Inherits the color of p3 */
         }
 
         footer {
-            margin-top: 50px;
-            font-size: 0.9em;
+            margin-top: 30px; /* Adjusted margin */
             color: #999;
         }
 
         .spooky-image {
-            width: 400px;
-            /* Increase the container size */
+            width: 80%; /* Responsive image */
             height: auto;
-            margin: 40px auto;
-            /* More space around the image */
+            margin: 20px auto; /* Adjusted margin */
         }
 
         .spooky-image img {
             width: 100%;
             height: auto;
+            border-radius: 10px; /* Rounded corners for the image */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for the image */
         }
+
         .pulse {
             font-size: 1.5em;
             margin-bottom: 30px;
@@ -148,15 +138,23 @@
             animation: pulse 3s infinite; /* Add pulse animation */
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
+        /* Media Queries for Additional Responsiveness */
+        @media (max-width: 768px) {
+            .container,
+            .container2 {
+                padding: 20px; /* Less padding for mobile */
             }
-            50% {
-                transform: scale(1.1);
+
+            h1 {
+                font-size: 2em; /* Smaller font size for headings */
             }
-            100% {
-                transform: scale(1);
+
+            p, ptransfer, pinfo {
+                font-size: 1.1em; /* Smaller font size for paragraphs */
+            }
+
+            .spooky-image {
+                width: 100%; /* Full width for mobile */
             }
         }
     </style>
@@ -172,7 +170,7 @@
                         address</a>.</b></p3><br></p>
         <p>To actually attend, make sure to send us an e-transfer for the event. <br><br><b>Send the money to the info
                 provided
-                below.</b></p><br><br>
+                below.</b></p><br>
         <!--<a href="https://your-etransfer-link.com" target="_blank">E-Transfer Here</a>-->
         <div class="container2">
 
@@ -183,7 +181,7 @@
             <pinfo>
                 <li>
                     Email: <b><a href="mailto:megansemail@gmail.com">megansemail@gmail.com</a></b>
-                </li>
+                </li><br>
                 <li>
                     Phone Number: <b><a href="tel:514123456">514-123-456</a></b>
                 </li>
@@ -191,7 +189,7 @@
         </div>
         <br>
         <footer>
-            <p>Bring your own alcohol, and have fun... though no vomitting or breaking stuff in the place or we'll have
+            <p>Bring your own alcohol, and have fun... though no vomiting or breaking stuff in the place or we'll have
                 to fine you.<br>
                 <br><br>Wear your best costume and enjoy the party!
             </p>
@@ -201,7 +199,7 @@
         <div class="spooky-image">
             <img src="https://cfe.umich.edu/wp-content/uploads/2024/01/giphy-1-1.gif" alt="Spooky Image">
         </div>
-        <p>^ actually me on October 25th ^</p>
+        <p>^actually me on October 25th^</p>
         <br>
         <br>
         <br>
