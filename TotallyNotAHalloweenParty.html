@@ -160,6 +160,90 @@
             /* Shadow for the image */
         }
 
+        .iframe-container {
+            width: 70%;
+            float: left;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            /* Adjusted gap for spacing between images */
+            margin: 0 auto;
+            /* Center the gallery */
+        }
+
+        .image-gallery img {
+            width: 150px;
+            /* Slightly bigger image size */
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            margin-top: 100px;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            color: #ffcc66;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
         .pulse {
             font-size: 1.5em;
             margin-bottom: 30px;
@@ -172,6 +256,13 @@
 
         /* Media Queries for Additional Responsiveness */
         @media (max-width: 768px) {
+            iframe-container iframe {
+                width: 100%;
+            }
+
+            .image-gallery img {
+                width: 100px;
+            }
 
             .container,
             .container2 {
@@ -205,9 +296,9 @@
         <br>
 
         <p>Join us on <p2><b>October 25th</b></p2> from <p3><b>7 pm - 3 am</b></p3> at <p3><b><a
-                        href="https://giggster.com/listing/industrial-event-space-3" target="_blank">this
+                        href="https://maps.app.goo.gl/bCTovTWaE5VfcDCdA" target="_blank">this
                         address</a>.</b></p3><br></p>
-        <p>To actually attend, make sure to send us an e-transfer for the event. <br><br><b>Send the money to the info
+        <p>To actually attend, make sure to send us an e-transfer for the fees. <br><br><b>Send the money to the info
                 provided
                 below.</b></p><br>
         <!--<a href="https://your-etransfer-link.com" target="_blank">E-Transfer Here</a>-->
@@ -228,21 +319,85 @@
         </div>
         <br>
         <footer>
-            <p>Bring your own alcohol, and have fun... though no vomiting or breaking stuff in the place or we'll have
+            <p><b>Bring your own alcohol</b>, and have fun... though no vomiting or breaking stuff in the place or we'll
+                actually have
                 to fine you.<br>
                 <br><br>Wear your best costume and enjoy the party!
-            </p>
-        </footer>
-        <br><br><br>
-        <br>
-        <div class="spooky-image">
-            <img src="https://cfe.umich.edu/wp-content/uploads/2024/01/giphy-1-1.gif" alt="Spooky Image">
-        </div>
-        <p>^actually me on October 25th^</p>
-        <br>
-        <br>
-        <br>
+            </p><br>
+
+            <h2>Images of the Event Space</h2>
+            <div class="image-container">
+                <!-- Modal for enlarging image -->
+                <div id="imageModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="enlargedImage">
+                    <!-- Left and right navigation arrows -->
+                    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="next" onclick="changeImage(1)">&#10095;</span>
+                </div>
+
+
+                <div class="image-gallery">
+                    <img src="1.jpeg" alt="Image 1" onclick="openModal(this.src)">
+                    <img src="2.jpeg" alt="Image 2" onclick="openModal(this.src)">
+                    <img src="3.jpeg" alt="Image 3" onclick="openModal(this.src)">
+                    <img src="4.jpeg" alt="Image 4" onclick="openModal(this.src)">
+                    <img src="5.jpeg" alt="Image 5" onclick="openModal(this.src)">
+                    <img src="6.jpeg" alt="Image 6" onclick="openModal(this.src)">
+                </div>
+
+                <!-- Modal for enlarging image -->
+                <div id="imageModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="enlargedImage">
+                </div>
+            </div>
+<br>
+            <div class="spooky-image">
+                <img src="https://cfe.umich.edu/wp-content/uploads/2024/01/giphy-1-1.gif" alt="Spooky Image">
+            </div>
+            <p>^actually me on October 25th^</p>
+
     </div>
+    </footer>
+   
+
+    </div>
+
 </body>
 
 </html>
+<script>
+    let images = [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg",
+        "4.jpeg",
+        "5.jpeg",
+        "6.jpeg"
+    ]; // Array of image sources
+    let currentIndex = 0;
+
+    function openModal(src) {
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("enlargedImage");
+        modal.style.display = "block";
+        modalImg.src = src;
+        currentIndex = images.indexOf(src); // Set current index
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1; // Wrap to last image
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; // Wrap to first image
+        }
+        document.getElementById("enlargedImage").src = images[currentIndex]; // Change image source
+    }
+</script>
