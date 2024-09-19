@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="thumbnail.ico" type="image/x-icon">
+    <meta property="og:image" content="thumbnail.png">
+    <meta property="og:title" content="Totally Not A Halloween Party">
+    <meta property="og:description" content="All the information needed to know for this Halloween party.">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totally Not a Halloween Party</title>
@@ -19,10 +24,13 @@
         .container {
             background-color: #0d0d0d;
             color: #0d0d0d;
-            width: 80%; /* Increase the width for mobile */
+            width: 80%;
+            /* Increase the width for mobile */
             max-width: 1200px;
-            padding: 30px; /* Less padding for mobile */
-            margin: 30px auto; /* Less margin */
+            padding: 30px;
+            /* Less padding for mobile */
+            margin: 30px auto;
+            /* Less margin */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             position: relative;
@@ -32,16 +40,20 @@
         .container2 {
             background-color: #000000;
             color: #0d0d0d;
-            width: 80%; /* Increase the width for mobile */
+            width: 80%;
+            /* Increase the width for mobile */
             max-width: 1200px;
-            padding: 30px; /* Less padding for mobile */
-            margin: 30px auto; /* Less margin */
+            padding: 30px;
+            /* Less padding for mobile */
+            margin: 30px auto;
+            /* Less margin */
             box-shadow: 0 0 20px 10px #ff6600;
             border-radius: 10px;
         }
 
         h1 {
-            font-size: 3.5em; /* Adjusted for mobile */
+            font-size: 3.5em;
+            /* Adjusted for mobile */
             margin: 20px 0;
             color: #ff6600;
             text-shadow: 2px 2px #333;
@@ -49,13 +61,16 @@
         }
 
         p {
-            font-size: 1.2em; /* Smaller font size for paragraphs */
-            margin-bottom: 20px; /* Adjusted margin */
+            font-size: 1.2em;
+            /* Smaller font size for paragraphs */
+            margin-bottom: 20px;
+            /* Adjusted margin */
             color: #ffcc66;
         }
 
         p2 {
-            font-size: 1.5em; /* Adjusted for mobile */
+            font-size: 1.5em;
+            /* Adjusted for mobile */
             margin-bottom: 20px;
             color: #ff9100;
             animation: pulse 1.5s infinite;
@@ -65,30 +80,37 @@
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.1);
             }
+
             100% {
                 transform: scale(1);
             }
         }
 
         pinfo {
-            font-size: 1.4em; /* Adjusted for mobile */
+            font-size: 1.4em;
+            /* Adjusted for mobile */
             margin-bottom: 20px;
             color: green;
-            line-height: 1.5; /* Adjusted line height */
+            line-height: 1.5;
+            /* Adjusted line height */
         }
 
         ptransfer {
-            font-size: 1.6em; /* Adjusted for mobile */
+            font-size: 1.6em;
+            /* Adjusted for mobile */
             margin-bottom: 20px;
             color: rgb(255, 255, 255);
-            letter-spacing: 2px; /* Adjusted letter spacing */
+            letter-spacing: 2px;
+            /* Adjusted letter spacing */
         }
 
         p3 {
-            font-size: 1.1em; /* Smaller font size for mobile */
+            font-size: 1.1em;
+            /* Smaller font size for mobile */
             margin-bottom: 20px;
             color: #ff9100;
         }
@@ -96,7 +118,8 @@
         a {
             text-decoration: none;
             transition: background-color 0.3s;
-            color: #ffcc66; /* Consistent link color */
+            color: #ffcc66;
+            /* Consistent link color */
         }
 
         a:hover {
@@ -105,56 +128,72 @@
 
         p3 a {
             text-decoration: underline;
-            color: inherit; /* Inherits the color of p3 */
+            color: inherit;
+            /* Inherits the color of p3 */
         }
 
         pinfo a {
-            color: inherit; /* Inherits the color of p3 */
+            color: inherit;
+            /* Inherits the color of p3 */
         }
 
         footer {
-            margin-top: 30px; /* Adjusted margin */
+            margin-top: 30px;
+            /* Adjusted margin */
             color: #999;
         }
 
         .spooky-image {
-            width: 80%; /* Responsive image */
+            width: 80%;
+            /* Responsive image */
             height: auto;
-            margin: 20px auto; /* Adjusted margin */
+            margin: 20px auto;
+            /* Adjusted margin */
         }
 
         .spooky-image img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* Rounded corners for the image */
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for the image */
+            border-radius: 10px;
+            /* Rounded corners for the image */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            /* Shadow for the image */
         }
 
         .pulse {
             font-size: 1.5em;
             margin-bottom: 30px;
             color: #ff9100;
-            display: inline-block; /* Make sure it's treated as an inline block for scaling */
-            animation: pulse 3s infinite; /* Add pulse animation */
+            display: inline-block;
+            /* Make sure it's treated as an inline block for scaling */
+            animation: pulse 3s infinite;
+            /* Add pulse animation */
         }
 
         /* Media Queries for Additional Responsiveness */
         @media (max-width: 768px) {
+
             .container,
             .container2 {
-                padding: 20px; /* Less padding for mobile */
+                padding: 20px;
+                /* Less padding for mobile */
             }
 
             h1 {
-                font-size: 2em; /* Smaller font size for headings */
+                font-size: 2em;
+                /* Smaller font size for headings */
             }
 
-            p, ptransfer, pinfo {
-                font-size: 1.1em; /* Smaller font size for paragraphs */
+            p,
+            ptransfer,
+            pinfo {
+                font-size: 1.1em;
+                /* Smaller font size for paragraphs */
             }
 
             .spooky-image {
-                width: 100%; /* Full width for mobile */
+                width: 100%;
+                /* Full width for mobile */
             }
         }
     </style>

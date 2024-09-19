@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="thumbnail.ico" type="image/x-icon">
+    <meta property="og:image" content="thumbnail.png">
+    <meta property="og:title" content="Admin Guest List">
+    <meta property="og:description" content="List of everyone at the party.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Guest List</title>
+    <style>
+        body {
+            background-color: #9b4b00;
+            background-image: url("https://as1.ftcdn.net/v2/jpg/02/94/33/40/1000_F_294334093_6YoWdVKl5PcoVYqvxbampc8wFAISjL3f.jpg");
+            color: #e5e5e5;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #0d0d0d;
+            width: 80%;
+            max-width: 1200px;
+            padding: 30px;
+            margin: 30px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 20px 0;
+            color: #ff6600;
+            text-shadow: 2px 2px #333;
+            animation: pulse 5s infinite;
+        }
+
+        .guest-container {
+            margin-bottom: 20px;
+        }
+
+        .guest-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .guest-name {
+            font-size: 1.8em;
+            color: #ffcc66;
+            font-weight: bold;
+        }
+
+        .guest-list input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            margin-left: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+
+        a {
+            color: orange;
+            text-decoration: none;
+            /* Optional: to remove underline */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* Optional: underline on hover */
+        }
+
+        .search-container {
+            display: flex;
+            /* Use flexbox for alignment */
+            justify-content: center;
+            /* Center the search bar */
+            padding: 20px;
+            /* Add some padding */
+        }
+
+        .search-input {
+            width: 300px;
+            /* Width of the input field */
+            padding: 10px;
+            /* Padding inside the input field */
+            border: 1px solid #ccc;
+            /* Light gray border */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-right: 10px;
+            /* Space between input and button */
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            /* Padding for the button */
+            background-color: orange;
+            /* Button background color */
+            border: none;
+            /* No border */
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+        }
+
+        .search-button:hover {
+            background-color: darkorange;
+            /* Darker shade on hover */
+        }
+
+        /* Mobile-friendly styles */
+        @media (max-width: 768px) {
+            .guest-list {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .guest-name {
+                font-size: 1.4em;
+                margin-bottom: 10px;
+            }
+
+            .checkbox-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .guest-list input[type="checkbox"] {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+
+            a {
+                color: orange;
+                text-decoration: none;
+                /* Optional: to remove underline */
+            }
+
+            a:hover {
+                text-decoration: underline;
+                /* Optional: underline on hover */
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Admin Guest List</h1>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput" onkeyup="filterGuests()">
+        </div>
+        
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/mx.gab.mu" target="_blank">mx.gab.mu</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_mx.gab.mu"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_mx.gab.mu"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/samuele.sticozzi"
+                    target="_blank">samuele.sticozzi</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_samuele.sticozzi"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_samuele.sticozzi"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/jason_melo23"
+                    target="_blank">jason_melo23</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_jason_melo23"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_jason_melo23"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/erika.campisi"
+                    target="_blank">erika.campisi</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_erika.campisi"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_erika.campisi"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/cote.allysson"
+                    target="_blank">cote.allysson</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_cote.allysson"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_cote.allysson"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/lamb_sauce_66"
+                    target="_blank">lamb_sauce_66</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_lamb_sauce_66"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_lamb_sauce_66"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/topgun__9" target="_blank">topgun__9</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_topgun__9"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_topgun__9"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/dadaxcxc" target="_blank">dadaxcxc</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_dadaxcxc"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_dadaxcxc"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/jllucario" target="_blank">jllucario</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_jllucario"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_jllucario"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/elodie.stem"
+                    target="_blank">elodie.stem</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_elodie.stem"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_elodie.stem"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/nick_mancini38"
+                    target="_blank">nick_mancini38</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_nick_mancini38"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_nick_mancini38"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/latreillealexandre"
+                    target="_blank">latreillealexandre</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_latreillealexandre"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_latreillealexandre"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/dignazio23"
+                    target="_blank">dignazio23</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_dignazio23"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_dignazio23"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/mr.tallchild"
+                    target="_blank">mr.tallchild</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_mr.tallchild"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_mr.tallchild"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/glucadicaprio"
+                    target="_blank">glucadicaprio</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_glucadicaprio"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_glucadicaprio"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/sk1n.full" target="_blank">sk1n.full</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_sk1n.full"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_sk1n.full"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/_sean_russo_"
+                    target="_blank">_sean_russo_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid__sean_russo_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived__sean_russo_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/annie_tyagay"
+                    target="_blank">annie_tyagay</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_annie_tyagay"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_annie_tyagay"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/med1na.rm" target="_blank">med1na.rm</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_med1na.rm"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_med1na.rm"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/big_charlez"
+                    target="_blank">big_charlez</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_big_charlez"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_big_charlez"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/victoriiaa.pereiraa"
+                    target="_blank">victoriiaa.pereiraa</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_victoriiaa.pereiraa"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_victoriiaa.pereiraa"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/megan.ashley8"
+                    target="_blank">megan.ashley8</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_megan.ashley8"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_megan.ashley8"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/officialsterben"
+                    target="_blank">officialsterben</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_officialsterben"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_officialsterben"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/em1._.em1" target="_blank">em1._.em1</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_em1._.em1"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_em1._.em1"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/korapomaski"
+                    target="_blank">korapomaski</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_korapomaski"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_korapomaski"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/milena_1720"
+                    target="_blank">milena_1720</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_milena_1720"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_milena_1720"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/aya_mehdi19"
+                    target="_blank">aya_mehdi19</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_aya_mehdi19"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_aya_mehdi19"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/jesus_chavero_2001"
+                    target="_blank">jesus_chavero_2001</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_jesus_chavero_2001"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_jesus_chavero_2001"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/k423y_db" target="_blank">k423y_db</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_k423y_db"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_k423y_db"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/barmaan183"
+                    target="_blank">barmaan183</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_barmaan183"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_barmaan183"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/brandon_toner_"
+                    target="_blank">brandon_toner_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_brandon_toner_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_brandon_toner_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/jasonm_1307"
+                    target="_blank">jasonm_1307</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_jasonm_1307"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_jasonm_1307"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/gianfrancogigliotti_"
+                    target="_blank">gianfrancogigliotti_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_gianfrancogigliotti_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_gianfrancogigliotti_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/marcanthony_i"
+                    target="_blank">marcanthony_i</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_marcanthony_i"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_marcanthony_i"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/charles_brail"
+                    target="_blank">charles_brail</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_charles_brail"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_charles_brail"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/calcada24" target="_blank">calcada24</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_calcada24"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_calcada24"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/frankiefavata"
+                    target="_blank">frankiefavata</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_frankiefavata"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_frankiefavata"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/reiosada" target="_blank">reiosada</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_reiosada"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_reiosada"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/saranovembre"
+                    target="_blank">saranovembre</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_saranovembre"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_saranovembre"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/manuela.gh"
+                    target="_blank">manuela.gh</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_manuela.gh"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_manuela.gh"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/kierahlambert"
+                    target="_blank">kierahlambert</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_kierahlambert"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_kierahlambert"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/stella.paolella"
+                    target="_blank">stella.paolella</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_stella.paolella"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_stella.paolella"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/louis_clausel"
+                    target="_blank">louis_clausel</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_louis_clausel"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_louis_clausel"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/_mila_xoxo_"
+                    target="_blank">_mila_xoxo_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid__mila_xoxo_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived__mila_xoxo_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/mikhael.asiri"
+                    target="_blank">mikhael.asiri</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_mikhael.asiri"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_mikhael.asiri"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/mariapomaskii"
+                    target="_blank">mariapomaskii</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_mariapomaskii"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_mariapomaskii"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/alessia_maiorano_"
+                    target="_blank">alessia_maiorano_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_alessia_maiorano_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_alessia_maiorano_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/sereensda" target="_blank">sereensda</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_sereensda"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_sereensda"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/ariannaga_"
+                    target="_blank">ariannaga_</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_ariannaga_"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_ariannaga_"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/fernandaceainostroza"
+                    target="_blank">fernandaceainostroza</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_fernandaceainostroza"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_fernandaceainostroza"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/brandon_0077"
+                    target="_blank">brandon_0077</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_brandon_0077"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_brandon_0077"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/may0rcangel"
+                    target="_blank">may0rcangel</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_may0rcangel"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_may0rcangel"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/yaspeace61"
+                    target="_blank">yaspeace61</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_yaspeace61"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_yaspeace61"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/micthug24" target="_blank">micthug24</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_micthug24"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_micthug24"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/hd.mot" target="_blank">hd.mot</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_hd.mot"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_hd.mot"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/angel_hndz7"
+                    target="_blank">angel_hndz7</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_angel_hndz7"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_angel_hndz7"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/anna.da.panda"
+                    target="_blank">anna.da.panda</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_anna.da.panda"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_anna.da.panda"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/double_red_si"
+                    target="_blank">double_red_si</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_double_red_si"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_double_red_si"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/maev._.a11"
+                    target="_blank">maev._.a11</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_maev._.a11"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_maev._.a11"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/maxximo_m.g"
+                    target="_blank">maxximo_m.g</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_maxximo_m.g"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_maxximo_m.g"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/elyphoria" target="_blank">elyphoria</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_elyphoria"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_elyphoria"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/fffr222nn" target="_blank">fffr222nn</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_fffr222nn"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_fffr222nn"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/dani_25_xo"
+                    target="_blank">dani_25_xo</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_dani_25_xo"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_dani_25_xo"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/elk1ce" target="_blank">elk1ce</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_elk1ce"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_elk1ce"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/nicenicowaifu"
+                    target="_blank">nicenicowaifu</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_nicenicowaifu"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_nicenicowaifu"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/joey_gk1" target="_blank">joey_gk1</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_joey_gk1"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_joey_gk1"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/frannyleone"
+                    target="_blank">frannyleone</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_frannyleone"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_frannyleone"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/m.o.n.k.e.y_s"
+                    target="_blank">m.o.n.k.e.y_s</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_m.o.n.k.e.y_s"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_m.o.n.k.e.y_s"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/legoueg" target="_blank">legoueg</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_legoueg"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_legoueg"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/amanita_agari"
+                    target="_blank">amanita_agari</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_amanita_agari"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_amanita_agari"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/epiphyllum___oxypetalum"
+                    target="_blank">epiphyllum___oxypetalum</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_epiphyllum___oxypetalum"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_epiphyllum___oxypetalum"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/theprophetofdreams"
+                    target="_blank">theprophetofdreams</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_theprophetofdreams"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_theprophetofdreams"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/t_caltabianzzz"
+                    target="_blank">t_caltabianzzz</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_t_caltabianzzz"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_t_caltabianzzz"> Arrived to Party</label>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+
+        function filterGuests() {
+            // Get the search input value and convert it to lowercase
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            // Get all guest list elements
+            const guests = document.querySelectorAll(".guest-list");
+
+            // Loop through each guest list element
+            guests.forEach(guest => {
+                // Get the guest name from the element
+                const guestName = guest.querySelector(".guest-name a").innerText.toLowerCase();
+                // Check if the guest name includes the search input
+                if (guestName.includes(input)) {
+                    guest.style.display = ""; // Show the guest
+                } else {
+                    guest.style.display = "none"; // Hide the guest
+                }
+            });
+        }
+
+        // Function to save the checkbox states in local storage
+        function saveCheckboxState(checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            localStorage.setItem(checkboxId, checkbox.checked);
+        }
+
+        // Function to restore checkbox states from local storage
+        function restoreCheckboxState(checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            const savedState = localStorage.getItem(checkboxId);
+            checkbox.checked = savedState === "true";
+        }
+
+        // List of all checkbox IDs
+        const checkboxIds = [
+            'paid_mxgabmu', 'arrived_mxgabmu',
+            'paid_samuelesticozzi', 'arrived_samuelesticozzi',
+            'paid_jasonmelo23', 'arrived_jasonmelo23',
+            // Add all other IDs here as needed
+        ];
+
+        // Restore the state of all checkboxes on page load
+        checkboxIds.forEach(restoreCheckboxState);
+
+        // Add event listeners to save checkbox state when clicked
+        checkboxIds.forEach(id => {
+            document.getElementById(id).addEventListener('change', () => saveCheckboxState(id));
+        });
+    </script>
+</body>
+
+</html>
