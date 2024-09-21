@@ -749,135 +749,168 @@
                 <label><input type="checkbox" id="arrived___glennjacobs__"> Arrived to Party</label>
             </div>
         </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/oceaneplantepeltier"
+                    target="_blank">oceaneplantepeltier</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_oceaneplantepeltier"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_oceaneplantepeltier"> Arrived to Party</label>
+            </div>
+        </div>
+
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/surfthevibrations"
+                    target="_blank">Ezekiel</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_Ezekiel"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_Ezekiel"> Arrived to Party</label>
+            </div>
+        </div>
+
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/vi_ct_o_riaaaaa"
+                    target="_blank">vi_ct_o_riaaaaa</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_vi_ct_o_riaaaaa"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_vi_ct_o_riaaaaa"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/charlesphilipperatte"
+                    target="_blank">charlesphilipperatte</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_charlesphilipperatte"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_charlesphilipperatte"> Arrived to Party</label>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkboxIds = [
+                    'paid_mx.gab.mu', 'arrived_mx.gab.mu',
+                    'paid_samuele.sticozzi', 'arrived_samuele.sticozzi',
+                    'paid_jason_melo23', 'arrived_jason_melo23',
+                    'paid_erika.campisi', 'arrived_erika.campisi',
+                    'paid_cote.allysson', 'arrived_cote.allysson',
+                    'paid_lamb_sauce_66', 'arrived_lamb_sauce_66',
+                    'paid_topgun__9', 'arrived_topgun__9',
+                    'paid_topgun9', 'arrived_topgun9',
+                    'paid_dadaxcxc', 'arrived_dadaxcxc',
+                    'paid_jllucario', 'arrived_jllucario',
+                    'paid_elodie.stem', 'arrived_elodie.stem',
+                    'paid_nick_mancini38', 'arrived_nick_mancini38',
+                    'paid_latreillealexandre', 'arrived_latreillealexandre',
+                    'paid_dignazio23', 'arrived_dignazio23',
+                    'paid_mr.tallchild', 'arrived_mr.tallchild',
+                    'paid_glucadicaprio', 'arrived_glucadicaprio',
+                    'paid_sk1n.full', 'arrived_sk1n.full',
+                    'paid_sean_russo', 'arrived_sean_russo',
+                    'paid_annie_tyagay', 'arrived_annie_tyagay',
+                    'paid_med1na.rm', 'arrived_med1na.rm',
+                    'paid_big_charlez', 'arrived_big_charlez',
+                    'paid_victoriiaa.pereiraa', 'arrived_victoriiaa.pereiraa',
+                    'paid_megan.ashley8', 'arrived_megan.ashley8',
+                    'paid_officialsterben', 'arrived_officialsterben',
+                    'paid_em1..em1', 'arrived_em1..em1',
+                    'paid_korapomaski', 'arrived_korapomaski',
+                    'paid_milena_1720', 'arrived_milena_1720',
+                    'paid_aya_mehdi19', 'arrived_aya_mehdi19',
+                    'paid_jesus_chavero_2001', 'arrived_jesus_chavero_2001',
+                    'paid_k423y_db', 'arrived_k423y_db',
+                    'paid_barmaan183', 'arrived_barmaan183',
+                    'paid_brandon_toner', 'arrived_brandon_toner',
+                    'paid_jasonm_1307', 'arrived_jasonm_1307',
+                    'paid_gianfrancogigliotti', 'arrived_gianfrancogigliotti',
+                    'paid_marcanthony_i', 'arrived_marcanthony_i',
+                    'paid_charles_brail', 'arrived_charles_brail',
+                    'paid_calcada24', 'arrived_calcada24',
+                    'paid_frankiefavata', 'arrived_frankiefavata',
+                    'paid_reiosada', 'arrived_reiosada',
+                    'paid_saranovembre', 'arrived_saranovembre',
+                    'paid_manuela.gh', 'arrived_manuela.gh',
+                    'paid_kierahlambert', 'arrived_kierahlambert',
+                    'paid_stella.paolella', 'arrived_stella.paolella',
+                    'paid_louis_clausel', 'arrived_louis_clausel',
+                    'paid_mila_xoxo', 'arrived_mila_xoxo',
+                    'paid_mikhael.asiri', 'arrived_mikhael.asiri',
+                    'paid_mariapomaskii', 'arrived_mariapomaskii',
+                    'paid_alessia_maiorano_', 'arrived_alessia_maiorano_',
+                    'paid_sereensda', 'arrived_sereensda',
+                    'paid_ariannaga_', 'arrived_ariannaga_',
+                    'paid_fernandaceainostroza', 'arrived_fernandaceainostroza',
+                    'paid_brandon_0077', 'arrived_brandon_0077',
+                    'paid_may0rcangel', 'arrived_may0rcangel',
+                    'paid_yaspeace61', 'arrived_yaspeace61',
+                    'paid_micthug24', 'arrived_micthug24',
+                    'paid_hd.mot', 'arrived_hd.mot',
+                    'paid_angel_hndz7', 'arrived_angel_hndz7',
+                    'paid_anna.da.panda', 'arrived_anna.da.panda',
+                    'paid_double_red_si', 'arrived_double_red_si',
+                    'paid_maev..a11', 'arrived_maev..a11',
+                    'paid_maxximo_m.g', 'arrived_maxximo_m.g',
+                    'paid_elyphoria', 'arrived_elyphoria',
+                    'paid_fffr222nn', 'arrived_fffr222nn',
+                    'paid_dani_25_xo', 'arrived_dani_25_xo',
+                    'paid_elk1ce', 'arrived_elk1ce',
+                    'paid_nicenicowaifu', 'arrived_nicenicowaifu',
+                    'paid_joey_gk1', 'arrived_joey_gk1',
+                    'paid_frannyleone', 'arrived_frannyleone',
+                    'paid_m.o.n.k.e.y_s', 'arrived_m.o.n.k.e.y_s',
+                    'paid_legoueg', 'arrived_legoueg',
+                    'paid_amanita_agari', 'arrived_amanita_agari',
+                    'paid_epiphyllumoxypetalum', 'arrived_epiphyllumoxypetalum',
+                    'paid_theprophetofdreams', 'arrived_theprophetofdreams',
+                    'paid_t_caltabianzzz', 'arrived_t_caltabianzzz',
+                    'paid___glennjacobs__', 'arrived___glennjacobs__',
+                    'paid_oceaneplantepeltier', 'arrived_oceaneplantepeltier',
+                    'paid_Ezekiel', 'arrived_Ezekiel',
+                    'paid_vi_ct_o_riaaaaa', 'arrived_vi_ct_o_riaaaaa',
+                    'paid_charlesphilipperatte', 'arrived_charlesphilipperatte'
+                ];
 
 
-    </div>
+                // Restore the state of all checkboxes on page load
+                checkboxIds.forEach(restoreCheckboxState);
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkboxIds = [
-                'paid_mx.gab.mu', 'arrived_mx.gab.mu',
-                'paid_samuele.sticozzi', 'arrived_samuele.sticozzi',
-                'paid_jason_melo23', 'arrived_jason_melo23',
-                'paid_erika.campisi', 'arrived_erika.campisi',
-                'paid_cote.allysson', 'arrived_cote.allysson',
-                'paid_lamb_sauce_66', 'arrived_lamb_sauce_66',
-                'paid_topgun__9', 'arrived_topgun__9',
-                'paid_topgun9', 'arrived_topgun9',
-                'paid_dadaxcxc', 'arrived_dadaxcxc',
-                'paid_jllucario', 'arrived_jllucario',
-                'paid_elodie.stem', 'arrived_elodie.stem',
-                'paid_nick_mancini38', 'arrived_nick_mancini38',
-                'paid_latreillealexandre', 'arrived_latreillealexandre',
-                'paid_dignazio23', 'arrived_dignazio23',
-                'paid_mr.tallchild', 'arrived_mr.tallchild',
-                'paid_glucadicaprio', 'arrived_glucadicaprio',
-                'paid_sk1n.full', 'arrived_sk1n.full',
-                'paid_sean_russo', 'arrived_sean_russo',
-                'paid_annie_tyagay', 'arrived_annie_tyagay',
-                'paid_med1na.rm', 'arrived_med1na.rm',
-                'paid_big_charlez', 'arrived_big_charlez',
-                'paid_victoriiaa.pereiraa', 'arrived_victoriiaa.pereiraa',
-                'paid_megan.ashley8', 'arrived_megan.ashley8',
-                'paid_officialsterben', 'arrived_officialsterben',
-                'paid_em1..em1', 'arrived_em1..em1',
-                'paid_korapomaski', 'arrived_korapomaski',
-                'paid_milena_1720', 'arrived_milena_1720',
-                'paid_aya_mehdi19', 'arrived_aya_mehdi19',
-                'paid_jesus_chavero_2001', 'arrived_jesus_chavero_2001',
-                'paid_k423y_db', 'arrived_k423y_db',
-                'paid_barmaan183', 'arrived_barmaan183',
-                'paid_brandon_toner', 'arrived_brandon_toner',
-                'paid_jasonm_1307', 'arrived_jasonm_1307',
-                'paid_gianfrancogigliotti', 'arrived_gianfrancogigliotti',
-                'paid_marcanthony_i', 'arrived_marcanthony_i',
-                'paid_charles_brail', 'arrived_charles_brail',
-                'paid_calcada24', 'arrived_calcada24',
-                'paid_frankiefavata', 'arrived_frankiefavata',
-                'paid_reiosada', 'arrived_reiosada',
-                'paid_saranovembre', 'arrived_saranovembre',
-                'paid_manuela.gh', 'arrived_manuela.gh',
-                'paid_kierahlambert', 'arrived_kierahlambert',
-                'paid_stella.paolella', 'arrived_stella.paolella',
-                'paid_louis_clausel', 'arrived_louis_clausel',
-                'paid_mila_xoxo', 'arrived_mila_xoxo',
-                'paid_mikhael.asiri', 'arrived_mikhael.asiri',
-                'paid_mariapomaskii', 'arrived_mariapomaskii',
-                'paid_alessia_maiorano_', 'arrived_alessia_maiorano_',
-                'paid_sereensda', 'arrived_sereensda',
-                'paid_ariannaga_', 'arrived_ariannaga_',
-                'paid_fernandaceainostroza', 'arrived_fernandaceainostroza',
-                'paid_brandon_0077', 'arrived_brandon_0077',
-                'paid_may0rcangel', 'arrived_may0rcangel',
-                'paid_yaspeace61', 'arrived_yaspeace61',
-                'paid_micthug24', 'arrived_micthug24',
-                'paid_hd.mot', 'arrived_hd.mot',
-                'paid_angel_hndz7', 'arrived_angel_hndz7',
-                'paid_anna.da.panda', 'arrived_anna.da.panda',
-                'paid_double_red_si', 'arrived_double_red_si',
-                'paid_maev..a11', 'arrived_maev..a11',
-                'paid_maxximo_m.g', 'arrived_maxximo_m.g',
-                'paid_elyphoria', 'arrived_elyphoria',
-                'paid_fffr222nn', 'arrived_fffr222nn',
-                'paid_dani_25_xo', 'arrived_dani_25_xo',
-                'paid_elk1ce', 'arrived_elk1ce',
-                'paid_nicenicowaifu', 'arrived_nicenicowaifu',
-                'paid_joey_gk1', 'arrived_joey_gk1',
-                'paid_frannyleone', 'arrived_frannyleone',
-                'paid_m.o.n.k.e.y_s', 'arrived_m.o.n.k.e.y_s',
-                'paid_legoueg', 'arrived_legoueg',
-                'paid_amanita_agari', 'arrived_amanita_agari',
-                'paid_epiphyllumoxypetalum', 'arrived_epiphyllumoxypetalum',
-                'paid_theprophetofdreams', 'arrived_theprophetofdreams',
-                'paid_t_caltabianzzz', 'arrived_t_caltabianzzz',
-                'paid___glennjacobs__', 'arrived___glennjacobs__'
+                // Add event listeners to save checkbox state when clicked
+                checkboxIds.forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.addEventListener('change', () => saveCheckboxState(id));
+                    }
+                });
 
-            ];
+                function saveCheckboxState(checkboxId) {
+                    const checkbox = document.getElementById(checkboxId);
+                    if (checkbox) {
+                        localStorage.setItem(checkboxId, checkbox.checked);
+                    }
+                }
 
-
-            // Restore the state of all checkboxes on page load
-            checkboxIds.forEach(restoreCheckboxState);
-
-            // Add event listeners to save checkbox state when clicked
-            checkboxIds.forEach(id => {
-                const checkbox = document.getElementById(id);
-                if (checkbox) {
-                    checkbox.addEventListener('change', () => saveCheckboxState(id));
+                function restoreCheckboxState(checkboxId) {
+                    const checkbox = document.getElementById(checkboxId);
+                    if (checkbox) {
+                        const savedState = localStorage.getItem(checkboxId);
+                        checkbox.checked = savedState === "true";
+                    }
                 }
             });
 
-            function saveCheckboxState(checkboxId) {
-                const checkbox = document.getElementById(checkboxId);
-                if (checkbox) {
-                    localStorage.setItem(checkboxId, checkbox.checked);
-                }
+            function filterGuests() {
+                // Get the search input value and convert it to lowercase
+                const input = document.getElementById("searchInput").value.toLowerCase();
+                // Get all guest list elements
+                const guests = document.querySelectorAll(".guest-list");
+
+                // Loop through each guest list element
+                guests.forEach(guest => {
+                    // Get the guest name from the element
+                    const guestName = guest.querySelector(".guest-name a").innerText.toLowerCase();
+                    // Check if the guest name includes the search input
+                    guest.style.display = guestName.includes(input) ? "" : "none"; // Show or hide the guest
+                });
             }
+        </script>
 
-            function restoreCheckboxState(checkboxId) {
-                const checkbox = document.getElementById(checkboxId);
-                if (checkbox) {
-                    const savedState = localStorage.getItem(checkboxId);
-                    checkbox.checked = savedState === "true";
-                }
-            }
-        });
-
-        function filterGuests() {
-            // Get the search input value and convert it to lowercase
-            const input = document.getElementById("searchInput").value.toLowerCase();
-            // Get all guest list elements
-            const guests = document.querySelectorAll(".guest-list");
-
-            // Loop through each guest list element
-            guests.forEach(guest => {
-                // Get the guest name from the element
-                const guestName = guest.querySelector(".guest-name a").innerText.toLowerCase();
-                // Check if the guest name includes the search input
-                guest.style.display = guestName.includes(input) ? "" : "none"; // Show or hide the guest
-            });
-        }
-    </script>
-    z
 </body>
 
 </html>
