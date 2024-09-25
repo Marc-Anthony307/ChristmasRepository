@@ -799,6 +799,38 @@
                 <label><input type="checkbox" id="arrived_kayla.caldarella"> Arrived to Party</label>
             </div>
         </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/kayla.caldarella"
+                    target="_blank">kayla.caldarella</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_kayla.caldarella"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_kayla.caldarella"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/isabella_divenere"
+                    target="_blank">isabella_divenere</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_isabella_divenere"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_isabella_divenere"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/maya.barbarush"
+                    target="_blank">maya.barbarush</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_maya.barbarush"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_maya.barbarush"> Arrived to Party</label>
+            </div>
+        </div>
+        <div class="guest-list">
+            <span class="guest-name"><a href="https://www.instagram.com/ferrante.15"
+                    target="_blank">ferrante.15</a></span>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="paid_ferrante.15"> Paid Entry</label>
+                <label><input type="checkbox" id="arrived_ferrante.15"> Arrived to Party</label>
+            </div>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const checkboxIds = [
@@ -882,7 +914,10 @@
                     'paid_rocky__mancini', 'arrived_rocky__mancini',
                     'paid_leonie_gagne', 'arrived_leonie_gagne',
                     'paid_davide_sciannamblo', 'arrived_davide_sciannamblo',
-                    'paid_kayla.caldarella', 'arrived_kayla.caldarella'
+                    'paid_kayla.caldarella', 'arrived_kayla.caldarella',
+                    'paid_isabella_divenere', 'arrived_isabella_divenere',
+                    'paid_maya.barbarush', 'arrived_maya.barbarush',
+                    'paid_ferrante.15', 'arrived_ferrante.15'
                 ];
 
 
@@ -927,6 +962,25 @@
                     guest.style.display = guestName.includes(input) ? "" : "none"; // Show or hide the guest
                 });
             }
+
+            function countGuests() {
+                // Get all elements with the class 'guest-list'
+                const guests = document.querySelectorAll('.guest-list');
+
+                // Count the total number of guests
+                const totalGuests = guests.length;
+
+                // Optionally, log the count to the console or display it somewhere
+                console.log("Total Guests: " + totalGuests);
+
+                // If you want to display it in the HTML, you can create an element for that
+                const guestCountDisplay = document.createElement('div');
+                guestCountDisplay.innerHTML = "Total Guests: " + totalGuests;
+                document.querySelector('.container').insertBefore(guestCountDisplay, document.querySelector('.search-container'));
+            }
+
+            countGuests();
+
         </script>
 
 </body>
